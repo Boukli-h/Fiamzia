@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "553575889300",
+    "project_id": "fiamzia",
+    "storage_bucket": "fiamzia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553575889300:android:bc9357ac88157386217781",
+        "android_client_info": {
+          "package_name": "www.wafaa.fiamzia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553575889300-e1q6i6nhqub939nuth4o55j1hiaqhomr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxLrunV2rMTOGb_OriLIQbsvAFeK-jpg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553575889300-e1q6i6nhqub939nuth4o55j1hiaqhomr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
