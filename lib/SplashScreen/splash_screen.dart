@@ -1,6 +1,12 @@
+import 'dart:async';
+
+import 'package:fiamzia/login/before_login.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:splashscreen/splashscreen.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:animated_text/animated_text.dart';
+
 
 void main(){
   runApp(new MaterialApp(
@@ -8,6 +14,8 @@ void main(){
   ));
 }
 
+const Color fiamzia_blue_principal = Color(0xffcae3f6);
+const Color fiamzia_grey_principal = Color(0xff707070);
 
 class MyApp extends StatefulWidget {
   @override
@@ -22,49 +30,59 @@ class _MyAppState extends State<MyApp> {
 
     // <fetch data from server. ex. login>
 
-    return Future.value(new AfterSplash());
+    return Future.value(new Before_Login());
   }
 
   @override
-  Widget build(BuildContext context) {
-    return new SplashScreen(
-      //use this line if you want the splash stay until load from future terminate.
-      //navigateAfterFuture: loadFromFuture(),
-
-        seconds: 8,
-        navigateAfterSeconds: new AfterSplash(),
-        /* title: new Text('FiaMia Loading ...',
-          style: new TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 25.0
-          ),),*/
-        //image: new Image.asset('assets/images/screen.png'),
-        loadingText: Text("FiaMzia loading..."),
-        backgroundColor: Colors.white,
-        imageBackground: Image.asset('assets/images/splash_screen.png').image,
-        styleTextUnderTheLoader: new TextStyle(),
-        photoSize: 100.0,
-        onClick: ()=>print("Splash screen clicked"),
-        loaderColor: Colors.red
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 7),
+            ()=> Navigator.push(context,
+            MaterialPageRoute(builder: (context) => Before_Login()
+            )
+        )
     );
   }
-}
-
-class AfterSplash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-          title: new Text("FiaMzia"),
-          automaticallyImplyLeading: false
-      ),
-      body: new Center(
-        child: new Text("Welcome to FiaMzia corporation !",
-          style: new TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 30.0
-          ),
-          textAlign: TextAlign.center,
+
+    ImageProvider backgroundImage = AssetImage('assets/images/fiamzia_background.png');
+    backgroundImage.resolve(createLocalImageConfiguration(context));
+
+
+    return  Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              image: backgroundImage,
+              fit: BoxFit.cover,
+            )
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 100,
+              child: AnimatedText(
+                speed: Duration(milliseconds: 1000),
+                controller: AnimatedTextController.loop,
+                displayTime: Duration(milliseconds: 1000),
+                wordList: ['FiaMzia', 'Shoping', 'Online', 'Easier', 'Now.'],
+                textStyle: TextStyle(
+                    color: fiamzia_grey_principal,
+                    fontSize: 45,
+                    fontWeight: FontWeight.w700),
+              ),
+            ),
+            SizedBox(height: 70),
+            Image.asset('assets/images/fiamzia_logo.png', height: 200.0,),
+            SizedBox(height: 120),
+            SpinKitRing(color: Colors.lightBlue),
+            SizedBox(height: 10,),
+            Text("Loading ...", style: TextStyle(color: fiamzia_grey_principal),),
+          ],
         ),
       ),
     );
