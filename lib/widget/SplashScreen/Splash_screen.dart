@@ -1,29 +1,25 @@
 import 'dart:async';
-
-import 'package:fiamzia/login/before_login.dart';
+import 'package:fiamzia/widget/login/Before_Login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:animated_text/animated_text.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../home_screen.dart';
 
-void main(){
-  runApp(new MaterialApp(
-    home: new MyApp(),
-  ));
-}
 
 const Color fiamzia_blue_principal = Color(0xffcae3f6);
 const Color fiamzia_grey_principal = Color(0xff707070);
 
-class MyApp extends StatefulWidget {
+class Splash_screen extends StatefulWidget {
   @override
-  _MyAppState createState() => new _MyAppState();
+  _Splash_screenState createState() => new _Splash_screenState();
 }
 
 
-class _MyAppState extends State<MyApp> {
+class _Splash_screenState extends State<Splash_screen> {
 
 
   Future<Widget> loadFromFuture() async {
@@ -36,12 +32,18 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 7),
-            ()=> Navigator.push(context,
-            MaterialPageRoute(builder: (context) => Before_Login()
-            )
-        )
-    );
+    Timer(Duration(seconds: 7), ()=> ScreenChoser());
+  }
+
+  Future<void> ScreenChoser() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var email = prefs.getString('email');
+    print(email);
+    if(email == null){
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Before_Login()));
+    }else{
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Home_screen()));
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -76,9 +78,9 @@ class _MyAppState extends State<MyApp> {
                     fontWeight: FontWeight.w700),
               ),
             ),
-            SizedBox(height: 70),
+            SizedBox(height: 40),
             Image.asset('assets/images/fiamzia_logo.png', height: 200.0,),
-            SizedBox(height: 120),
+            SizedBox(height: 100),
             SpinKitRing(color: Colors.lightBlue),
             SizedBox(height: 10,),
             Text("Loading ...", style: TextStyle(color: fiamzia_grey_principal),),
