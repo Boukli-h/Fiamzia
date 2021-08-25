@@ -36,10 +36,6 @@ dependencies:
   animated_text: ^1.0.2
   flutter_spinkit: ^4.1.2
   async_button_builder: ^2.1.3+1
-  http: ^0.13.3
-  shared_preferences: ^2.0.6
-  flutter_material_color_picker: ^1.0.5
-  favorite_button: ^0.0.4
 
 
 dev_dependencies:
@@ -69,22 +65,12 @@ flutter:
     - assets/images/fiamzia_background.png
     - assets/images/fiamzia_logo.png
     - assets/images/google.png
-    - assets/images/google_logo.png
-    - assets/images/back_button.png
-    - assets/images/bag_button.png
-    - assets/images/checker.png
-    - assets/images/heart_icon.png
-    - assets/images/heart_icon_disabled.png
-    - assets/images/shoe_blue.png
-    - assets/images/shoe_green.png
-    - assets/images/shoe_pink.png
-    - assets/images/shoe_yellow.png
 
   fonts:
-      - family: RobotoMono
-        fonts:
-          - asset: assets/fonts/RobotoMono-Bold.ttf
-            weight: 700
+    - family: RobotoMono
+      fonts:
+        - asset: assets/fonts/RobotoMono-Bold.ttf
+          weight: 700
 
   # To add assets to your application, add an assets section, like this:
   # assets:

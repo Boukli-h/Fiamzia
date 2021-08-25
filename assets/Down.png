@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="306" height="48" viewBox="0 0 306 48">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Base" width="306" height="48" rx="24" fill="#c3e5ff"/>
+    </clipPath>
+  </defs>
+  <g id="Down" clip-path="url(#clip-path)">
+    <g id="Shadow" fill="none" stroke="#97a7c3" stroke-width="6">
+      <rect width="315.935" height="60" rx="30" stroke="none"/>
+      <rect x="3" y="3" width="309.935" height="54" rx="27" fill="none"/>
+    </g>
+    <g id="Light" transform="translate(-16.89 -8.8)" fill="none" stroke="#fff" stroke-width="6">
+      <rect width="322.89" height="56.8" rx="28.4" stroke="none"/>
+      <rect x="3" y="3" width="316.89" height="50.8" rx="25.4" fill="none"/>
+    </g>
+  </g>
+</svg>
